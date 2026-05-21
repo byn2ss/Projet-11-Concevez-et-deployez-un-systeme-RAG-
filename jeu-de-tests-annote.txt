@@ -1,0 +1,45 @@
+======================================================================
+PULS-EVENTS - JEU DE TEST ANNOTÉ (GROUND TRUTH EVALUATION)
+Version du POC : 2026.1
+Contrainte Métier : Événements de moins d'un an (Paris 2026)
+======================================================================
+
+Ce fichier constitue le référentiel de "Vérité Terrain" (Ground Truth) 
+demandé par le responsable technique Jérémy. Il permet d'évaluer de 
+manière empirique la précision du système RAG et de mesurer la fidélité 
+des réponses générées par le modèle de langage Mistral AI.
+
+----------------------------------------------------------------------
+PAIRE DE TEST #1 : Évaluation de la recherche sémantique (Thématique Jazz)
+----------------------------------------------------------------------
+QUESTION : c'est quoi le Diego Imbert Quartet ?
+RÉPONSE ANNOTÉE (Vérité Terrain) : C'est un groupe de jazz mené par le contrebassiste Diego Imbert, accompagné de David El-Malek (saxophone ténor) et Quentin Ghomari (trompette). Ils se produisent au JASS CLUB PARIS (141 Rue de Tolbiac, Paris) le samedi 31 janvier 2026 à 19h30 et 21h30.
+
+----------------------------------------------------------------------
+PAIRE DE TEST #2 : Évaluation du respect des barrières géographiques
+----------------------------------------------------------------------
+QUESTION : je veux un concert pour les prochains jours à Marseille
+RÉPONSE ANNOTÉE (Vérité Terrain) : Le système doit identifier que la demande est hors périmètre et refuser poliment en indiquant que la base de connaissances contient exclusivement des événements parisiens.
+
+----------------------------------------------------------------------
+PAIRE DE TEST #3 : Évaluation du ciblage public (Famille / Enfants)
+----------------------------------------------------------------------
+QUESTION : je veux sortir mis enfants ces prochaine vacances
+RÉPONSE ANNOTÉE (Vérité Terrain) : Le système doit extraire les activités adaptées au jeune public :
+1. "Cité des enfants (2/7 ans)" à la Cité des sciences et de l'industrie (Samedi 17 mai 2026 à 18h15).
+2. "Rendez-vous aux jardins : Visite des jardins en famille" au Jardin du musée Bourdelle (Samedi 7 juin 2026).
+
+----------------------------------------------------------------------
+PAIRE DE TEST #4 : Évaluation de la précision temporelle (Filtre par mois)
+----------------------------------------------------------------------
+QUESTION : y'a t-il un concert prevu en juin ?
+RÉPONSE ANNOTÉE (Vérité Terrain) : Le modèle doit lister uniquement les concerts programmés en Juin 2026 :
+1. Concerts des ateliers au jardin par les élèves du conservatoire Jean-Philippe Rameau au Musée Zadkine (Samedi 7 juin 2026).
+2. Concert "Secrets" par le Duo Paganini in Paris au Musée Bourdelle (Dimanche 8 juin 2026).
+
+----------------------------------------------------------------------
+PAIRE DE TEST #5 : Évaluation de l'extension sémantique (Restauration)
+----------------------------------------------------------------------
+QUESTION : je veux manger un retau
+RÉPONSE ANNOTÉE (Vérité Terrain) : Le modèle doit comprendre l'intention liée à la nourriture malgré la faute de frappe et proposer des alternatives événementielles culinaires comme "À Table aux Arènes !" ou "Projet Terroir" aux Arènes de Lutèce (juin 2026).
+======================================================================
